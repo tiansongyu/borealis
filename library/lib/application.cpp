@@ -243,7 +243,11 @@ bool Application::init(std::string title, Style style, Theme theme)
             Application::fontStash.korean = Application::loadFontFromMemory("korean", font.address, font.size, false);
             nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.korean);
         }*/
+        
          // Chinese  font
+        //hey HamletDuFromage ,you need to add these code 
+        //and crate yours borealis lib 
+        //when you add a special charaters you should do this too :D
         rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseSimplified);
         if (R_SUCCEEDED(rc))
         {
