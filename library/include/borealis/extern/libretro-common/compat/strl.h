@@ -30,7 +30,7 @@
 #include "../../../config.h"
 #endif
 
-#include <libretro-common/retro_common_api.h>
+#include <retro_common_api.h>
 
 RETRO_BEGIN_DECLS
 

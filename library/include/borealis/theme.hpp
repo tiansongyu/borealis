@@ -19,21 +19,25 @@
 
 #pragma once
 
-#include <nanovg/nanovg.h>
+#include <nanovg.h>
 
 namespace brls
 {
 
-enum class ThemeVariant
+// Theme variants
+// (used in Application)
+//
+// Not an enum class because it's used
+// as an array index in Theme
+enum ThemeVariant
 {
-    LIGHT,
-    DARK
+    ThemeVariant_LIGHT = 0,
+    ThemeVariant_DARK,
+    ThemeVariant_NUMBER_OF_VARIANTS
 };
 
-// A Theme instance contains colors for one variant (light or dark)
-class Theme
+typedef struct
 {
-  public:
     float backgroundColor[3]; // gl color
     NVGcolor backgroundColorRGB;
 
@@ -77,62 +81,16 @@ class Theme
     NVGcolor dialogBackdrop;
     NVGcolor dialogButtonColor;
     NVGcolor dialogButtonSeparatorColor;
-};
+} ThemeValues;
 
-// Helper class to store two Theme variants and get the right one
-// depending on current system theme
-template <class LightTheme, class DarkTheme>
-class GenericThemeVariantsWrapper
-{
-  private:
-    LightTheme* lightTheme;
-    DarkTheme* darkTheme;
-
-  public:
-    GenericThemeVariantsWrapper(LightTheme* lightTheme, DarkTheme* darkTheme)
-        : lightTheme(lightTheme)
-        , darkTheme(darkTheme)
-    {
-    }
-
-    Theme* getTheme(ThemeVariant currentThemeVariant)
-    {
-        if (currentThemeVariant == ThemeVariant::DARK)
-            return this->darkTheme;
-
-        return this->lightTheme;
-    }
-
-    Theme* getLightTheme()
-    {
-        return this->lightTheme;
-    }
-
-    Theme* getDarkTheme()
-    {
-        return this->darkTheme;
-    }
-
-    ~GenericThemeVariantsWrapper()
-    {
-        delete this->lightTheme;
-        delete this->darkTheme;
-    }
-};
-
-// Themes variants wrapper specification for built-in library views
-typedef GenericThemeVariantsWrapper<Theme, Theme> LibraryViewsThemeVariantsWrapper;
-
-class HorizonLightTheme : public Theme
+// A theme contains colors for all variants
+class Theme
 {
   public:
-    HorizonLightTheme();
-};
+    ThemeValues colors[ThemeVariant_NUMBER_OF_VARIANTS];
 
-class HorizonDarkTheme : public Theme
-{
-  public:
-    HorizonDarkTheme();
+    // As close to HOS as possible
+    static Theme horizon();
 };
 
 } // namespace brls

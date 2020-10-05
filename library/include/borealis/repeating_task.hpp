@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include <libretro-common/features/features_cpu.h>
+#include <features/features_cpu.h>
 
 namespace brls
 {

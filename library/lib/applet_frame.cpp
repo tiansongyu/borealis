@@ -19,9 +19,6 @@
 
 #include <borealis/applet_frame.hpp>
 #include <borealis/application.hpp>
-#include <borealis/i18n.hpp>
-
-using namespace brls::i18n::literals;
 
 namespace brls
 {
@@ -39,7 +36,7 @@ AppletFrame::AppletFrame(bool padLeft, bool padRight)
     this->hint = new Hint();
     this->hint->setParent(this);
 
-    this->registerAction("brls/hints/back"_i18n, Key::B, [this] { return this->onCancel(); });
+    this->registerAction("Back", Key::B, [this] { return this->onCancel(); });
 }
 
 void AppletFrame::draw(NVGcontext* vg, int x, int y, unsigned width, unsigned height, Style* style, FrameContext* ctx)

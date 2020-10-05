@@ -23,9 +23,11 @@
 namespace brls
 {
 
-HorizonStyle::HorizonStyle()
+Style Style::horizon()
 {
-    this->AppletFrame = {
+    Style style = Style();
+
+    style.AppletFrame = {
         .headerHeightRegular = 88,
         .headerHeightPopup   = 129,
         .footerHeight        = 73,
@@ -45,7 +47,7 @@ HorizonStyle::HorizonStyle()
         .slideAnimation = 20
     };
 
-    this->Highlight = {
+    style.Highlight = {
         .strokeWidth  = 5,
         .cornerRadius = 0.5f,
 
@@ -55,11 +57,11 @@ HorizonStyle::HorizonStyle()
         .shadowOpacity = 128
     };
 
-    this->Background = {
+    style.Background = {
         .sidebarBorderHeight = 16
     };
 
-    this->Sidebar = {
+    style.Sidebar = {
         .width   = 410,
         .spacing = 0,
 
@@ -80,7 +82,7 @@ HorizonStyle::HorizonStyle()
         .Separator = { .height = 28 }
     };
 
-    this->List = {
+    style.List = {
         .marginLeftRight = 60,
         .marginTopBottom = 42,
         .spacing         = 61,
@@ -100,7 +102,7 @@ HorizonStyle::HorizonStyle()
             .selectRadius = 15 }
     };
 
-    this->Label = {
+    style.Label = {
         .regularFontSize      = 20,
         .mediumFontSize       = 18,
         .smallFontSize        = 16,
@@ -116,7 +118,7 @@ HorizonStyle::HorizonStyle()
         .notificationLineHeight = 1.35f
     };
 
-    this->CrashFrame = {
+    style.CrashFrame = {
         .labelWidth     = 0.60f,
         .boxStrokeWidth = 5,
         .boxSize        = 64,
@@ -126,7 +128,7 @@ HorizonStyle::HorizonStyle()
         .buttonSpacing  = 47
     };
 
-    this->Button = {
+    style.Button = {
         .cornerRadius = 5.0f,
 
         .highlightInset = 2,
@@ -137,7 +139,7 @@ HorizonStyle::HorizonStyle()
         .shadowOffset  = 10.0f
     };
 
-    this->TableRow = {
+    style.TableRow = {
         .headerHeight   = 60,
         .headerTextSize = 22,
 
@@ -148,7 +150,7 @@ HorizonStyle::HorizonStyle()
         .padding = 15
     };
 
-    this->Dropdown = {
+    style.Dropdown = {
         .listWidth   = 720,
         .listPadding = 40,
 
@@ -160,7 +162,7 @@ HorizonStyle::HorizonStyle()
         .headerPadding  = 70
     };
 
-    this->PopupFrame = {
+    style.PopupFrame = {
         .edgePadding      = 120,
         .separatorSpacing = 30,
         .footerHeight     = 73,
@@ -185,23 +187,23 @@ HorizonStyle::HorizonStyle()
         .subTitleFontSize = 16
     };
 
-    this->StagedAppletFrame = {
+    style.StagedAppletFrame = {
         .progressIndicatorSpacing          = 4,
         .progressIndicatorRadiusUnselected = 5 - 1, // minus half of border width
         .progressIndicatorRadiusSelected   = 8,
         .progressIndicatorBorderWidth      = 2
     };
 
-    this->ProgressSpinner = {
+    style.ProgressSpinner = {
         .centerGapMultiplier = 0.2f,
         .barWidthMultiplier  = 0.06f
     };
 
-    this->ProgressDisplay = {
+    style.ProgressDisplay = {
         .percentageLabelWidth = 70
     };
 
-    this->Header = {
+    style.Header = {
         .height  = 44,
         .padding = 11,
 
@@ -210,12 +212,12 @@ HorizonStyle::HorizonStyle()
         .fontSize = 18
     };
 
-    this->FramerateCounter = {
+    style.FramerateCounter = {
         .width  = 125,
         .height = 26
     };
 
-    this->ThumbnailSidebar = {
+    style.ThumbnailSidebar = {
         .marginLeftRight = 109, // used for the image only = (410 - 192) / 2, image size is 192*192 with a 410px wide sidebar
         .marginTopBottom = 47,
 
@@ -223,7 +225,7 @@ HorizonStyle::HorizonStyle()
         .buttonMargin = 60
     };
 
-    this->AnimationDuration = {
+    style.AnimationDuration = {
         .show      = 250,
         .showSlide = 125,
 
@@ -237,14 +239,14 @@ HorizonStyle::HorizonStyle()
         .notificationTimeout = 4000
     };
 
-    this->Notification = {
+    style.Notification = {
         .width   = 280,
         .padding = 16,
 
         .slideAnimation = 40
     };
 
-    this->Dialog = {
+    style.Dialog = {
         .width  = 770,
         .height = 220,
 
@@ -261,6 +263,8 @@ HorizonStyle::HorizonStyle()
         .shadowOpacity = 63.75f,
         .shadowOffset  = 10.0f
     };
+
+    return style;
 }
 
 } // namespace brls

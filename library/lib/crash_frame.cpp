@@ -22,9 +22,6 @@
 #include <borealis/animations.hpp>
 #include <borealis/application.hpp>
 #include <borealis/crash_frame.hpp>
-#include <borealis/i18n.hpp>
-
-using namespace brls::i18n::literals;
 
 namespace brls
 {
@@ -37,11 +34,11 @@ CrashFrame::CrashFrame(std::string text)
     this->label->setParent(this);
 
     // Button
-    this->button = (new Button(ButtonStyle::CRASH))->setLabel("brls/crash_frame/button"_i18n);
+    this->button = (new Button(ButtonStyle::CRASH))->setLabel("OK");
     this->button->setParent(this);
     this->button->alpha = 0.0f;
     this->button->getClickEvent()->subscribe([](View* view) { Application::quit(); });
-    this->button->overrideThemeVariant(Application::getThemeVariantsWrapper()->getDarkTheme());
+    this->button->overrideThemeVariant(Application::getThemeValuesForVariant(ThemeVariant_DARK));
 
     // Hint
     this->hint = new Hint();

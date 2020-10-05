@@ -22,8 +22,6 @@
 
 #include <math.h>
 
-using namespace brls::i18n::literals;
-
 SampleInstallerPage::SampleInstallerPage(brls::StagedAppletFrame* frame, std::string label)
 {
     // Label
@@ -35,7 +33,7 @@ SampleInstallerPage::SampleInstallerPage(brls::StagedAppletFrame* frame, std::st
         else
             frame->nextStage();
     });
-    this->label = new brls::Label(brls::LabelStyle::DIALOG, "installer/stage1/text"_i18n, true);
+    this->label = new brls::Label(brls::LabelStyle::DIALOG, "Here, you would normally do useful things", true);
     this->label->setHorizontalAlign(NVG_ALIGN_CENTER);
     this->label->setParent(this);
 }

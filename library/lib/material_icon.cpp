@@ -51,7 +51,7 @@ void MaterialIcon::setColor(NVGcolor color)
     this->useCustomColor = true;
 }
 
-NVGcolor MaterialIcon::getColor(Theme* theme)
+NVGcolor MaterialIcon::getColor(ThemeValues* theme)
 {
     if (this->useCustomColor)
         return this->customColor;

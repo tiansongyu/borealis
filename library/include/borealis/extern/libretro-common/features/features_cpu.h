@@ -23,11 +23,11 @@
 #ifndef _LIBRETRO_SDK_CPU_INFO_H
 #define _LIBRETRO_SDK_CPU_INFO_H
 
-#include <libretro-common/retro_common_api.h>
+#include <retro_common_api.h>
 
 #include <stdint.h>
 
-#include <libretro-common/libretro.h>
+#include <libretro.h>
 
 RETRO_BEGIN_DECLS
 

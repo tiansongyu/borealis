@@ -19,9 +19,6 @@
 #include <borealis/application.hpp>
 #include <borealis/button.hpp>
 #include <borealis/dialog.hpp>
-#include <borealis/i18n.hpp>
-
-using namespace brls::i18n::literals;
 
 // TODO: different open animation?
 
@@ -34,7 +31,7 @@ Dialog::Dialog(View* contentView)
     if (contentView)
         contentView->setParent(this);
 
-    this->registerAction("brls/hints/back"_i18n, Key::B, [this] { return this->onCancel(); });
+    this->registerAction("Back", Key::B, [this] { return this->onCancel(); });
 }
 
 Dialog::Dialog(std::string text)

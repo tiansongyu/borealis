@@ -21,9 +21,6 @@
 
 #include <borealis/application.hpp>
 #include <borealis/button.hpp>
-#include <borealis/i18n.hpp>
-
-using namespace brls::i18n::literals;
 
 namespace brls
 {
@@ -31,7 +28,7 @@ namespace brls
 Button::Button(ButtonStyle style)
     : style(style)
 {
-    this->registerAction("brls/hints/ok"_i18n, Key::A, [this] { return this->onClick(); });
+    this->registerAction("OK", Key::A, [this] { return this->onClick(); });
 }
 
 LabelStyle Button::getLabelStyle()

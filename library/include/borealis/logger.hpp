@@ -29,7 +29,6 @@ namespace brls
 enum class LogLevel
 {
     ERROR = 0,
-    WARNING,
     INFO,
     DEBUG
 };
@@ -51,9 +50,9 @@ class Logger
             fmt::print(format, args...);
             fmt::print("\n");
         }
-        catch (const std::exception& e)
+        catch (...)
         {
-            Logger::error("Invalid log format string: \"{}\": {}", format, e.what());
+            Logger::error("Invalid log format string: \"{}\"", format);
         }
 
 #ifdef __MINGW32__
@@ -65,12 +64,6 @@ class Logger
     inline static void error(std::string format, Args&&... args)
     {
         Logger::log(LogLevel::ERROR, "ERROR", "[0;31m", format, args...);
-    }
-
-    template <typename... Args>
-    inline static void warning(std::string format, Args&&... args)
-    {
-        Logger::log(LogLevel::WARNING, "WARNING", "[0;33m", format, args...);
     }
 
     template <typename... Args>
@@ -86,7 +79,7 @@ class Logger
     }
 
   private:
-    inline static LogLevel logLevel = LogLevel::INFO;
+    static inline LogLevel logLevel = LogLevel::INFO;
 };
 
 } // namespace brls

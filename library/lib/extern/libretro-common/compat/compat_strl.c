@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include <libretro-common/compat/strl.h>
+#include <compat/strl.h>
 
 /* Implementation of strlcpy()/strlcat() based on OpenBSD. */
 
