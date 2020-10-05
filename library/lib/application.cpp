@@ -248,6 +248,7 @@ bool Application::init(std::string title, Style style, Theme theme)
         //hey HamletDuFromage ,you need to add these code 
         //and crate yours borealis lib 
         //when you add a special charaters you should do this too :D
+        //if you don't add the code ,the chinese charaters will be messy
         rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseSimplified);
         if (R_SUCCEEDED(rc))
         {
