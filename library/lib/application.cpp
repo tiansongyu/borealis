@@ -243,7 +243,14 @@ bool Application::init(std::string title, Style style, Theme theme)
             Application::fontStash.korean = Application::loadFontFromMemory("korean", font.address, font.size, false);
             nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.korean);
         }
-
+         // Chinese  font
+        rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseSimplified);
+        if (R_SUCCEEDED(rc))
+        {
+            Logger::info("Adding Switch shared Chinese font");
+            Application::fontStash.Chinese = Application::loadFontFromMemory("Chinese", font.address, font.size, false);
+            nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.Chinese);
+        }
         // Extented font
         rc = plGetSharedFontByType(&font, PlSharedFontType_NintendoExt);
         if (R_SUCCEEDED(rc))
