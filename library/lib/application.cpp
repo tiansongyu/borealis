@@ -250,7 +250,7 @@ bool Application::init(std::string title, Style* style, LibraryViewsThemeVariant
         rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseSimplified);
         if (R_SUCCEEDED(rc))
         {
-            Logger::info("Adding Switch shared Korean font");
+            Logger::info("Adding Switch shared Chinese font");
             Application::fontStash.Chinese = Application::loadFontFromMemory("Chinese", font.address, font.size, false);
             nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.Chinese);
         }
